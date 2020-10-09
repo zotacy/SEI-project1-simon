@@ -12,7 +12,7 @@ let sequence = [];
 let moves = [];
 
 // add event listeners to each button
-cellArray.forEach(cell => cell.addEventListener('click', ()=>{console.log(`clicked ${gameBoard.cell}`)}));
+cellArray.forEach(cell => cell.addEventListener('click', ()=>{console.log(`clicked`)}));
 
 // generate random sequence
     //queue color with brighter color.

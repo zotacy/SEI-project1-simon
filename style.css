@@ -66,3 +66,11 @@ main{
     grid-column: 2;
     border: 2px solid green;
 }
+/* Start/ Reset Buttons */
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    margin: 0 auto;
+    padding: 5px;
+}
