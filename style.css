@@ -69,8 +69,5 @@ main{
 /* Start/ Reset Buttons */
 .buttons{
     display: flex;
-    justify-content: space-around;
-    width: 200px;
-    margin: 0 auto;
-    padding: 5px;
+    justify-content: center;
 }
