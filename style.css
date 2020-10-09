@@ -20,18 +20,23 @@ h2, p{
 main{
     /* text-align: center; */
     display: flex;
+    justify-content: center;
 }
 .gameBoard{
     display: grid;
     grid-template-rows: 100px 100px;
     grid-template-columns: 100px 100px;
+    width: 200px;
     border: 2px solid black;
+    margin: 50px auto;
 };
-/* Color Cells */
+/* Color Cells. Add later: Keyboard focuable? */
 .cell{
     height: 100px;
     width: 100px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #red{
     background-color: red;
