@@ -2,62 +2,67 @@ header{
     text-align: center;
     background-color: lightblue;
     background-size: cover;
-    padding: 10px;
-
-};
+    padding: 1px;
+}
 
 h1 {
     background-color: lightblue;
-    margin: 0 auto;
+    margin: 10px auto;
+    padding: 5px auto;
 }
 
 h2, p{
     background-color: lightsalmon;
     margin: 0 auto;
     padding: 5px 0;
-};
+}
 
 main{
-    /* text-align: center; */
     display: flex;
     justify-content: center;
 }
+
 .gameBoard{
     display: grid;
-    grid-template-rows: 100px 100px;
-    grid-template-columns: 100px 100px;
-    width: 200px;
-    border: 2px solid black;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 250px;
+    height: 250px;
+    box-sizing: border-box;
     margin: 50px auto;
-};
+    /* makes grid circular */
+    border: 2px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+}
 /* Color Cells. Add later: Keyboard focuable? */
 .cell{
-    height: 100px;
-    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #red{
     background-color: red;
     grid-row: 1;
     grid-column: 1;
-};
+}
 
 #yellow{
     background-color: yellow;
     grid-row: 1;
     grid-column: 2;
-};
+}
 
 #blue{
     background-color: blue;
     grid-row: 2;
     grid-column: 1;
-};
+}
 
 #green{
     background-color: green;
     grid-row: 2;
     grid-column: 2;
-};
+    border: 2px solid green;
+}
