@@ -17,14 +17,23 @@ cellArray.forEach(cell => cell.addEventListener('click', clickMoves));
 // generate random sequence
     //queue color with brighter color.
 function makeSequence(){
-
+    if (sequence = []){
+        for (let i=0; i<100; i++){
+               let cellId= cellArray[Math.floor(Math.random()*cellArray.length)].id;
+               sequence.push(cellId)
+               console.log(sequence)
+        }
+    } 
 }
 // add sequence tracking
     // when button clicked, add to sequence.
 function clickMoves(){
     moves.push(this.id)
-    console.log(this.id)
-    console.log(moves)
+    // console.log(this.id)
+    // console.log(moves)
+    // if (moves == sequence) {
+    //     addSequence
+    // };
 }
 // add losing logic: wrong button clicked in sequence
     //New array with clicks
@@ -35,7 +44,6 @@ function clickMoves(){
 const startBtn = document.querySelector('#start')
 startBtn.addEventListener('click', ()=>{
     moves=[];
-    makeSequence;
-})
-
-
+    sequence=[];
+    makeSequence();
+});
