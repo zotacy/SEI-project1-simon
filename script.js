@@ -56,5 +56,6 @@ const startBtn = document.querySelector('#start')
 startBtn.addEventListener('click', ()=>{
     moves=[];
     sequence=[];
+    playSequence=[];
     makeSequence();
 });
