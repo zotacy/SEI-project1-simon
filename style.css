@@ -43,28 +43,27 @@ main{
 }
 
 #red{
-    background-color: red;
+    background-color: #ff6262; /* #f20000 */
     grid-row: 1;
     grid-column: 1;
 }
 
 #yellow{
-    background-color: yellow;
+    background-color: #fff77a; /* #ffef00 */
     grid-row: 1;
     grid-column: 2;
 }
 
 #blue{
-    background-color: blue;
+    background-color: #4592ff; /* #005de2 */
     grid-row: 2;
     grid-column: 1;
 }
 
 #green{
-    background-color: green;
+    background-color: #63f4a0; /* #10e368 */
     grid-row: 2;
     grid-column: 2;
-    border: 2px solid green;
 }
 /* Start/ Reset Buttons */
 .buttons{
