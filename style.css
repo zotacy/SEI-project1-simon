@@ -31,37 +31,38 @@ main{
     box-sizing: border-box;
     margin: 50px auto;
     /* makes grid circular */
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 50%;
     overflow: hidden;
 }
-/* Color Cells. Add later: Keyboard focuable? */
+/* Color Cells. Add later: Keyboard focusable? */
 .cell{
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
 }
 
 #red{
-    background-color: #ff6262; /* #f20000 */
+    background-color: red; /* #ff6262 */
     grid-row: 1;
     grid-column: 1;
 }
 
 #yellow{
-    background-color: #fff77a; /* #ffef00 */
+    background-color: yellow; /* #fff77a*/
     grid-row: 1;
     grid-column: 2;
 }
 
 #blue{
-    background-color: #4592ff; /* #005de2 */
+    background-color: royalblue; /* #4592ff*/
     grid-row: 2;
     grid-column: 1;
 }
 
 #green{
-    background-color: #63f4a0; /* #10e368 */
+    background-color: lightgreen; /* #63f4a0*/
     grid-row: 2;
     grid-column: 2;
 }

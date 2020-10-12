@@ -12,25 +12,47 @@ let sequence = [];
 let playSequence = [];
 let moves = [];
 
-// add event listeners to each button
-cellArray.forEach(cell => cell.addEventListener('click', clickMoves));
+// Display playSequence pattern
+function resetColor(current){
+    current.style.opacity = '1.0';
+}
+function illuminate(current){
+    current.style.opacity = '0.5';
+    setTimeout(()=>{
+        resetColor(current)
+    }, 500);
+};
+function displayPlaySequence(){
+    playSequence.forEach((color, index) => {
+        let currentDiv = document.querySelector(`#${color}`)
+        console.log(currentDiv)
+        setTimeout(() => {
+            illuminate(currentDiv)
+        }, 1500*index+1);
+    });
+};
+//--//
 
-// generate random sequence
-    //queue color with brighter color.
 function makeSequence(){
+    // Add event listeners to each button
+    cellArray.forEach(cell => cell.addEventListener('click', clickMoves));
+    counter = 0;
+    sequence = [];
+    // Generate random sequence
     if (sequence = []){
         for (let i=0; i<10; i++){
-               let cellId= cellArray[Math.floor(Math.random()*cellArray.length)].id;
-               sequence.push(cellId)
+                let cellId= cellArray[Math.floor(Math.random()*cellArray.length)].id;
+                sequence.push(cellId)
         };
-        console.log(sequence)
-        playSequence.push(sequence[counter])
+        console.log(sequence);
+        playSequence.push(sequence[counter]);
+        displayPlaySequence();
         // console.log(playSequence)
     }; 
 };
 function updateSequence(){
     playSequence.push(sequence[counter])
-    displaySequence;
+    displayPlaySequence();
         // Add level based on counter.
         moves = [];
         counter = 0;
@@ -43,17 +65,19 @@ function updateSequence(){
     // If wrong move, end game.
 function clickMoves(){
     moves.push(this.id); //adds move to moves array
+    //this.style.opacity= '0.5'
+    illuminate(this);
     counter ++;
     for (let i=0; i<moves.length; i++){
         if (moves[i] !== playSequence[i]){ //Lose logic
             alert (`You Lose. Press OK to start a new game.`);
             moves = [];
             playSequence = [];
-            // cellArray.forEach(cell => cell.removeEventListener('click', clickMoves)); //Removes button clicking
+            // // cellArray.forEach(cell => cell.removeEventListener('click', clickMoves)); //Removes button clicking
         };
     };
     if (moves.length === playSequence.length){
-        updateSequence()
+        setTimeout(updateSequence, 1000)
     };
 };
 
@@ -65,47 +89,3 @@ startBtn.addEventListener('click', ()=>{
     playSequence=[];
     makeSequence();
 });
-
-// Display playSequence pattern
-const redOG = redBtn.style.backgroundColor; 
-const yellowOG = yellowBtn.style.backgroundColor;
-const blueOG = blueBtn.style.backgroundColor;
-const greenOG= greenBtn.style.backgroundColor;
-
-function resetColor(){
-    redBtn.style.backgroundColor = redOG;
-    yellowBtn.style.backgroundColor = yellowOG;
-    blueBtn.style.backgroundColor = blueOG;
-    greenBtn.style.backgroundColor = greenOG;
-};
-
-function illuminateRed(){
-    redBtn.style.backgroundColor = 'red'; //add to css
-    setTimeout(resetColors, 1800);
-};
-function illuminateRed(){
-    redBtn.style.backgroundColor = 'yellow'; //add to css
-    setTimeout(resetColors, 1800);
-};
-function illuminateRed(){
-    redBtn.style.backgroundColor = 'blue'; //add to css
-    setTimeout(resetColors, 1800);
-};
-function illuminateRed(){
-    redBtn.style.backgroundColor = 'green'; //add to css
-    setTimeout(resetColors, 1800);
-};
-
-const displaySequence = function displaySequence(){
-    playSequence.forEach((color, index) => {
-        if (color == 'red'){
-            setTimeout(illuminateRed(), 2000*index);
-        } else if (color == 'yellow'){
-            setTimeout(illuminateYellow(), 2000*index);
-        } else if (color == 'blue'){
-            setTimeout(illuminateBlue(), 2000*index);
-        } else if (color == 'green'){
-            setTimeout(illuminateGreen(), 2000*index);
-        };      
-    })
-}
