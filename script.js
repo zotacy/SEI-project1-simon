@@ -7,10 +7,15 @@ const yellowBtn = document.querySelector('#yellow');
 const blueBtn = document.querySelector('#blue');
 const greenBtn = document.querySelector('#green');
 
+const currentScore= document.querySelector('#currentScore');
+const highScore= document.querySelector('#highScore');
+
 let counter = 0;
 let sequence = [];
 let playSequence = [];
 let moves = [];
+// let cScore = 0;
+// let hScore = 0;
 
 // Display playSequence pattern
 function resetColor(current){
@@ -29,17 +34,14 @@ function displayPlaySequence(){
         //console.log(currentDiv)
         setTimeout(() => {
             illuminate(currentDiv)
-        }, 800*index+1);
+        }, 900*index+1);
     });
     cellArray.forEach(cell => cell.addEventListener('click', clickMoves)); //Add clicking function back
 };
-//--//
 
 function makeSequence(){
     // Add event listeners to each button
     cellArray.forEach(cell => cell.addEventListener('click', clickMoves));
-    counter = 0;
-    sequence = [];
     // Generate random sequence
     if (sequence = []){
         for (let i=0; i<10; i++){
@@ -69,13 +71,17 @@ function clickMoves(){
     counter ++;
     for (let i=0; i<moves.length; i++){
         if (moves[i] !== playSequence[i]){ //Lose logic- END GAME
-            alert (`You Lose. Press OK to start a new game.`);
+            alert (`You Lose. Your score was ${currentScore.innerText}! Press OK to start a new game.`);
             moves = [];
             playSequence = [];
+            highScore.innerText = currentScore.innerText;
+            counter = 0;
+            currentScore.innerText = `0`;
         };
     };
     if (moves.length === playSequence.length){
         setTimeout(updateSequence, 800)
+        currentScore.innerText = `${counter}`;
     };
 };
 
@@ -85,5 +91,8 @@ startBtn.addEventListener('click', ()=>{
     moves=[];
     sequence=[];
     playSequence=[];
+    counter = 0;
     makeSequence();
+    if (currentScore > highScore){highScore = currentScore};
+    currentScore.innerText = `0`;
 });
