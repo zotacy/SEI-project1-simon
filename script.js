@@ -14,10 +14,8 @@ let counter = 0;
 let sequence = [];
 let playSequence = [];
 let moves = [];
-// let cScore = 0;
-// let hScore = 0;
 
-// Display playSequence pattern
+// playSequence/Board Attributes
 function resetColor(current){
     current.style.opacity = '1.0';
 }
@@ -36,7 +34,6 @@ function displayPlaySequence(){
     playSequence.forEach((color, index) => {
         let currentDiv = document.querySelector(`#${color}`)
         let currentSound = currentDiv.id
-        //console.log(currentDiv)
         setTimeout(() => {
             illuminate(currentDiv)
             soundBoard(currentSound)
@@ -45,35 +42,32 @@ function displayPlaySequence(){
     cellArray.forEach(cell => cell.addEventListener('click', clickMoves)); //Add clicking function back
 };
 
+// Make/update game sequence
 function makeSequence(){
     // Add event listeners to each button
     cellArray.forEach(cell => cell.addEventListener('click', clickMoves));
     // Generate random sequence
     if (sequence = []){
-        for (let i=0; i<10; i++){
+        for (let i=0; i<100; i++){
                 let cellId= cellArray[Math.floor(Math.random()*cellArray.length)].id;
                 sequence.push(cellId)
         };
-        // console.log(sequence);
         playSequence.push(sequence[counter]);
         displayPlaySequence();
-        // console.log(playSequence)
     }; 
 };
 function updateSequence(){
     playSequence.push(sequence[counter])
-    // console.log(playSequence)
     displayPlaySequence();
     moves = [];
     counter = 0;  // Add level based on counter.
 };
 
-// Move tracking
-    // when button clicked, add move to move array.
-    // If moves are correct, initiate updateSequence.
+// Game logic/ move tracking
 function clickMoves(){
     moves.push(this.id); //adds move to moves array
     illuminate(this);
+    soundBoard(this.id)
     counter ++;
     for (let i=0; i<moves.length; i++){
         if (moves[i] !== playSequence[i]){ //Lose logic- END GAME
@@ -91,7 +85,7 @@ function clickMoves(){
     };
 };
 
-// Start Button-  Sets Move array to empty and initalizes makeSequence
+// Start Button-  initilaizes game logic and move/sequence arrays.
 const startBtn = document.querySelector('#start')
 startBtn.addEventListener('click', ()=>{
     moves=[];

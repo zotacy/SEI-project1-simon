@@ -28,23 +28,28 @@ main{
 
 .gameBoard{
     display: grid;
+    grid-gap: 2px;
+    background-color:black;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    width: 250px;
-    height: 250px;
-    box-sizing: border-box;
-    margin: 30px auto;
+    width: 300px;
+    height: 300px;
+    margin-top: 10px;
+    margin-bottom: 30px;
     /* makes grid circular */
-    border: 10px solid black;
+    border: 5px solid black;
+    box-sizing: border-box;
     border-radius: 50%;
     overflow: hidden;
+    position: relative;
 }
 /* Color Cells. Add later: Keyboard focusable? */
 .cell{
     display: flex;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    box-sizing: border-box;
 }
 
 #red{
@@ -87,12 +92,23 @@ main{
     line-height: 100%;
     width: 60px;
     border: 2px solid black;
-    padding: 5px;
+    padding: 5px 10px;
+    margin: 5px;
 }
 
-.buttons{
-    display: flex;
-    justify-content: center;
+#start{
+    font-family: "Impact", sans-serif;
+    font-size: 100%;
+    cursor: grab;
+
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 55px;
 }
 
 .sounds{
