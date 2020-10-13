@@ -30,9 +30,6 @@ function illuminate(current){
 function soundBoard(current){
     let sound = document.querySelector(`[cell-sound='${current}']`);
     sound.play();
-    // setTimeout(()=>{
-    //     resetColor(current)
-    // }, 300);
 }
 function displayPlaySequence(){
     cellArray.forEach(cell => cell.removeEventListener('click', clickMoves)); //Removes button clicking
