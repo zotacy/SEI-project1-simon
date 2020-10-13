@@ -27,13 +27,22 @@ function illuminate(current){
         resetColor(current)
     }, 300);
 };
+function soundBoard(current){
+    let sound = document.querySelector(`[cell-sound='${current}']`);
+    sound.play();
+    // setTimeout(()=>{
+    //     resetColor(current)
+    // }, 300);
+}
 function displayPlaySequence(){
     cellArray.forEach(cell => cell.removeEventListener('click', clickMoves)); //Removes button clicking
     playSequence.forEach((color, index) => {
         let currentDiv = document.querySelector(`#${color}`)
+        let currentSound = currentDiv.id
         //console.log(currentDiv)
         setTimeout(() => {
             illuminate(currentDiv)
+            soundBoard(currentSound)
         }, 900*index+1);
     });
     cellArray.forEach(cell => cell.addEventListener('click', clickMoves)); //Add clicking function back
