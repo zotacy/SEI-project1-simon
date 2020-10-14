@@ -58,6 +58,7 @@ main{
     border-radius: 50%;
     overflow: hidden;
     position: relative;
+    box-shadow: 0px 0.5px 20px #888888;
 }
 /* Color Cells. Add later: Keyboard focusable? */
 .cell{
@@ -72,24 +73,28 @@ main{
     background-color: red; /* #ff6262 */
     grid-row: 1;
     grid-column: 1;
+    border-top-left-radius: 100%;
 }
 
 #yellow{
     background-color: yellow; /* #fff77a*/
     grid-row: 1;
     grid-column: 2;
+    border-top-right-radius: 100%;
 }
 
 #blue{
     background-color: royalblue; /* #4592ff*/
     grid-row: 2;
     grid-column: 1;
+    border-bottom-left-radius: 100%;
 }
 
 #green{
     background-color: lightgreen; /* #63f4a0*/
     grid-row: 2;
     grid-column: 2;
+    border-bottom-right-radius: 100%;
 }
 /* Boards & Buttons */
 .scoreboard{
@@ -133,5 +138,5 @@ main{
 }
 /* Extras */
 .shadow{
-    box-shadow: inset 0px 0px 17px 4px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 15px 5px rgba(31,31,31,0.67);
 }

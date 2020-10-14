@@ -25,13 +25,8 @@ function illuminate(current){
         resetColor(current)
     }, 300);
 };
-// function shadow(current){
-//     let currentDiv = document.querySelector(`#${current}`)
-//     console.log(currentDiv)
-//     currentDiv.onmousedown =() => currentDiv.classList.add('shadow');
-//     currentDiv.onmouseup =() => currentDiv.classList.remove('shadow');
-// }
 
+// Displays sequence and adds sounds
 function soundBoard(current){
     let sound = document.querySelector(`[cell-sound='${current}']`);
     sound.play();
@@ -52,7 +47,11 @@ function displayPlaySequence(){
 // Make/update game sequence
 function makeSequence(){
     // Add event listeners to each button
-    cellArray.forEach(cell => cell.addEventListener('click', clickMoves));
+    cellArray.forEach(cell => {
+        cell.addEventListener('mousedown', ()=> cell.classList.add('shadow'));
+        cell.addEventListener('mouseup', () => cell.classList.remove('shadow'));
+        cell.addEventListener('click', clickMoves);
+    });
     // Generate random sequence
     if (sequence = []){
         for (let i=0; i<100; i++){
@@ -72,8 +71,7 @@ function updateSequence(){
 
 // Game logic/ move tracking
 function clickMoves(){
-    illuminate(this);
-    //shadow(this.id);
+    // illuminate(this);
     soundBoard(this.id)
     moves.push(this.id); //adds move to moves array
     counter ++;
@@ -95,6 +93,8 @@ function clickMoves(){
 
 // Start Button-  initilaizes game logic and move/sequence arrays.
 const startBtn = document.querySelector('#start')
+startBtn.addEventListener('mousedown', ()=> startBtn.classList.add('shadow'));
+startBtn.addEventListener('mouseup', () => startBtn.classList.remove('shadow'));
 startBtn.addEventListener('click', ()=>{
     moves=[];
     sequence=[];
