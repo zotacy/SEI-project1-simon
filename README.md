@@ -4,7 +4,8 @@ Goal:
 Simon is a test of memory. Have your program choose a sequence of different colors at random and then prompt your player to repeat the sequence allowing them to go to advance to next round if the player is successful.
 
 Technology used:
-User Interface was built with HTML5 and CSS3. Functionality/ game logic was added using javascript.
+User Interface was built with HTML5 and CSS3. 
+Functionality/ game logic was added using Javascript ES6 and DOM manipulation.
 
 Tiers:
 Bronze:
