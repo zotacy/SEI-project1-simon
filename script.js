@@ -25,6 +25,13 @@ function illuminate(current){
         resetColor(current)
     }, 300);
 };
+// function shadow(current){
+//     let currentDiv = document.querySelector(`#${current}`)
+//     console.log(currentDiv)
+//     currentDiv.onmousedown =() => currentDiv.classList.add('shadow');
+//     currentDiv.onmouseup =() => currentDiv.classList.remove('shadow');
+// }
+
 function soundBoard(current){
     let sound = document.querySelector(`[cell-sound='${current}']`);
     sound.play();
@@ -65,9 +72,10 @@ function updateSequence(){
 
 // Game logic/ move tracking
 function clickMoves(){
-    moves.push(this.id); //adds move to moves array
     illuminate(this);
+    //shadow(this.id);
     soundBoard(this.id)
+    moves.push(this.id); //adds move to moves array
     counter ++;
     for (let i=0; i<moves.length; i++){
         if (moves[i] !== playSequence[i]){ //Lose logic- END GAME
@@ -92,6 +100,7 @@ startBtn.addEventListener('click', ()=>{
     sequence=[];
     playSequence=[];
     counter = 0;
+    //shadow(document.querySelector('#start').id)
     makeSequence();
     if (currentScore > highScore){highScore = currentScore};
     currentScore.innerText = `0`;

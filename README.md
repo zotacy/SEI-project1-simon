@@ -13,7 +13,6 @@ js reset button
 Gold:
 Add unique sound to each button for visually impaired.
 Use keyboard keys
-Add timer-based scoring
 Track scores across games (even if the page is reloaded)
 
 Platinum:

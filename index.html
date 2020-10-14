@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Simon Game</title>
 </head>
 <body>
     <header>
@@ -17,7 +17,6 @@
             <p> Current Score </p>
             <p id="currentScore"> 0 </p>
         </div>
-        <!-- <div> | <div> -->
         <div class="score">
             <p> High Score </p>
             <p id="highScore"> 0 </p>
@@ -25,10 +24,10 @@
     </div>
     <main>
         <div class="gameBoard">
-            <div class="cell" id="red">Red</div>
-            <div class="cell" id="yellow">Yellow</div>
-            <div class="cell" id="blue">Blue</div>
-            <div class="cell" id="green">Green</div>
+            <div class="cell" id="red">UL/Red</div>
+            <div class="cell" id="yellow">UR/Yellow</div>
+            <div class="cell" id="blue">LL/Blue</div>
+            <div class="cell" id="green">LR/Green</div>
             <button id="start"> Simon</button>
         </div>
         <div class="sounds">
@@ -45,8 +44,10 @@
               cell-sound="yellow"
             ></audio>
           </div>
-    </main>
-    
+    </main> 
+    <footer>
+        <p id="footer">Created by Zach Tacy</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
