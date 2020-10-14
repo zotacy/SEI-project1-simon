@@ -3,6 +3,10 @@
 Goal:
 Simon is a test of memory. Have your program choose a sequence of different colors at random and then prompt your player to repeat the sequence allowing them to go to advance to next round if the player is successful.
 
+Technology used:
+User Interface was built with HTML5 and CSS3. Functionality/ game logic was added using javascript.
+
+Tiers:
 Bronze:
 Simple, simon board with 4 color options (red, yellow, green, blue). The board will display a random color, the player must click on the same color. The board then adds a color onto the sequence, the player must correctly click on the proper sequence to continue.
 
