@@ -31,6 +31,12 @@ function soundBoard(current){
     let sound = document.querySelector(`[cell-sound='${current}']`);
     sound.play();
 }
+function shadowClick(current){
+    current.addEventListener('mousedown', ()=> current.classList.add('shadow'));
+    current.addEventListener('mouseup', () => current.classList.remove('shadow'));
+    current.addEventListener('touchstart', ()=> current.classList.add('shadow'));
+    current.addEventListener('touchend', () => current.classList.remove('shadow'));
+}
 function displayPlaySequence(){
     cellArray.forEach(cell => cell.removeEventListener('click', clickMoves)); //Removes button clicking
     playSequence.forEach((color, index) => {
@@ -48,8 +54,7 @@ function displayPlaySequence(){
 function makeSequence(){
     // Add event listeners to each button
     cellArray.forEach(cell => {
-        cell.addEventListener('mousedown', ()=> cell.classList.add('shadow'));
-        cell.addEventListener('mouseup', () => cell.classList.remove('shadow'));
+        shadowClick(cell);
         cell.addEventListener('click', clickMoves);
     });
     // Generate random sequence
@@ -93,8 +98,7 @@ function clickMoves(){
 
 // Start Button-  initilaizes game logic and move/sequence arrays.
 const startBtn = document.querySelector('#start')
-startBtn.addEventListener('mousedown', ()=> startBtn.classList.add('shadow'));
-startBtn.addEventListener('mouseup', () => startBtn.classList.remove('shadow'));
+shadowClick(startBtn);
 startBtn.addEventListener('click', ()=>{
     moves=[];
     sequence=[];
@@ -105,3 +109,8 @@ startBtn.addEventListener('click', ()=>{
     if (currentScore > highScore){highScore = currentScore};
     currentScore.innerText = `0`;
 });
+
+function process_touchstart(e){
+    e.preventDefault();
+
+}
