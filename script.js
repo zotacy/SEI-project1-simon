@@ -10,6 +10,8 @@ const greenBtn = document.querySelector('#green');
 const currentScore= document.querySelector('#currentScore');
 const highScore= document.querySelector('#highScore');
 
+const storage = window.localStorage;
+
 let counter = 0;
 let sequence = [];
 let playSequence = [];
@@ -25,6 +27,26 @@ function illuminate(current){
         resetColor(current)
     }, 300);
 };
+//--//
+document.onkeydown = checkKey;
+function checkKey(e) {
+    let keyId;
+    e = e || window.event;
+    if (e.keyCode == '49') {
+        keyId = redBtn.id;
+    }
+    else if (e.keyCode == '50') {
+        keyId = yellowBtn.id;
+    }
+    else if (e.keyCode == '51') {
+        keyId = blueBtn.id;
+    }
+    else if (e.keyCode == '52') {
+        keyId = greenBtn.id;
+    }
+    console.log(keyId)
+}
+//--//
 
 // Displays sequence and adds sounds
 function soundBoard(current){
@@ -76,7 +98,6 @@ function updateSequence(){
 
 // Game logic/ move tracking
 function clickMoves(){
-    // illuminate(this);
     soundBoard(this.id)
     moves.push(this.id); //adds move to moves array
     counter ++;
@@ -104,10 +125,11 @@ startBtn.addEventListener('click', ()=>{
     sequence=[];
     playSequence=[];
     counter = 0;
-    //shadow(document.querySelector('#start').id)
     makeSequence();
-    if (currentScore > highScore){highScore = currentScore};
-    currentScore.innerText = `0`;
+    if (currentScore > highScore){
+        highScore = currentScore;
+    }
+    else {currentScore.innerText = `0`};
 });
 
 function process_touchstart(e){
